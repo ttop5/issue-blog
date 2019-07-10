@@ -87,7 +87,7 @@ export default {
         {
           title: 'Douban',
           subTile: 'douban.com/people/ttop5',
-          icon: 'img:assets/douban.svg',
+          icon: 'img:statics/douban.svg',
           url: 'https://www.douban.com/people/ttop5',
         },
       ],
