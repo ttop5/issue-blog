@@ -4,6 +4,9 @@
       v-for="item in data"
       clickable
       v-ripple
+      tag="a"
+      target="_blank"
+      :href="item.html_url"
       :key="item.index"
     >
       <q-item-section>
@@ -43,10 +46,6 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-    };
-  },
   filters: {
     dateFormate(d) {
       return date.formatDate(d, 'YYYY-MM-DD');
@@ -54,8 +53,6 @@ export default {
     htmlToText(h) {
       return h.replace(/<\/?.+?>/g, '');
     },
-  },
-  methods: {
   },
 };
 </script>

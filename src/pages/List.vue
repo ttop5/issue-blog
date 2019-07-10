@@ -4,7 +4,7 @@
       <Item :data="data" />
     </q-list>
     <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn fab icon="keyboard_arrow_up" color="primary" />
+      <q-btn fab icon="keyboard_arrow_up" color="cyan-9" />
     </q-page-scroller>
   </q-page>
 </template>
@@ -24,10 +24,8 @@ export default {
       data: [],
     };
   },
-  computed: {
-  },
   methods: {
-    getIssues() {
+    getIssueList() {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues`)
         .then((res) => {
           this.$set(this, 'data', res.data);
@@ -35,7 +33,7 @@ export default {
     },
   },
   created() {
-    this.getIssues();
+    this.getIssueList();
   },
 };
 </script>
