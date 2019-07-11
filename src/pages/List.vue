@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <q-list dense bordered padding class="rounded-borders">
+    <q-list dense padding class="rounded-borders">
       <Item :data="data" />
     </q-list>
     <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
@@ -29,10 +29,12 @@ export default {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues`)
         .then((res) => {
           this.$set(this, 'data', res.data);
+          this.$q.loading.hide();
         });
     },
   },
   created() {
+    this.$q.loading.show({ delay: 250 });
     this.getIssueList();
   },
 };

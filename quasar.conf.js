@@ -49,6 +49,7 @@ module.exports = function(ctx) {
         'QChip',
         'QAvatar',
         'QImg',
+        'QSeparator',
       ],
 
       directives: [
@@ -58,6 +59,7 @@ module.exports = function(ctx) {
       // Quasar plugins
       plugins: [
         'Notify',
+        'Loading',
         'LoadingBar',
       ],
       config: {
