@@ -28,6 +28,7 @@ export default {
     getIssueList() {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues`)
         .then((res) => {
+          console.log(res.data);
           this.$set(this, 'data', res.data);
           this.$q.loading.hide();
         });
