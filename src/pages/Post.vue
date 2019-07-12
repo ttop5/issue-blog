@@ -4,7 +4,6 @@
     <div>
       <q-chip
         v-for="label in data.labels"
-        dense
         outline
         square
         clickable

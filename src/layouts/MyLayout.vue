@@ -1,17 +1,25 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-cyan-9">
+    <q-header elevated reveal class="bg-cyan-9">
       <q-toolbar>
         <q-btn
           flat
-          dense
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
+          aria-label="Home"
+          to="/"
+          class="text-white"
+        >
+          <q-icon name="home" />
+        </q-btn>
+        <q-toolbar-title>Issue blog</q-toolbar-title>
+        <q-btn
+          flat
+          round
           aria-label="Menu"
+          @click="leftDrawerOpen = !leftDrawerOpen"
         >
           <q-icon name="menu" />
         </q-btn>
-        <q-toolbar-title>Issue blog</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -30,28 +38,37 @@
         </div>
       </q-img>
 
-      <q-list>
-        <q-item-label header>Links</q-item-label>
-        <q-item
-          v-for="item in links"
-          clickable v-ripple tag="a" target="_blank" :key="item.index" :href="item.url">
-          <q-item-section avatar>
-            <q-icon :name="item.icon" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ item.title }}</q-item-label>
-            <q-item-label caption>{{ item.subTile }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
+<!--      <q-list>-->
+<!--        <q-item-label header>Links</q-item-label>-->
+<!--        <q-item-->
+<!--          v-for="item in links"-->
+<!--          clickable-->
+<!--          v-ripple-->
+<!--          tag="a"-->
+<!--          target="_blank"-->
+<!--          :key="item.index"-->
+<!--          :href="item.url"-->
+<!--        >-->
+<!--          <q-item-section avatar class="text-grey-10">-->
+<!--            <q-icon size="28px" :name="item.icon" />-->
+<!--          </q-item-section>-->
+<!--          <q-item-section>-->
+<!--            <q-item-label>{{ item.title }}</q-item-label>-->
+<!--            <q-item-label caption>{{ item.subTile }}</q-item-label>-->
+<!--          </q-item-section>-->
+<!--        </q-item>-->
+<!--      </q-list>-->
 
       <div class="absolute-bottom text-center q-pa-sm text-grey-6">© {{ year }} ttop5</div>
-
     </q-drawer>
 
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
+      <q-btn fab icon="keyboard_arrow_up" color="cyan-9" />
+    </q-page-scroller>
   </q-layout>
 </template>
 
@@ -65,32 +82,32 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
       user: {},
-      links: [
-        {
-          title: 'Home',
-          subTile: 'https://ttop5.net',
-          icon: 'fas fa-home',
-          url: 'https://ttop5.net',
-        },
-        {
-          title: 'Github',
-          subTile: 'github.com/ttop5',
-          icon: 'fab fa-github',
-          url: 'https://github.com/ttop5',
-        },
-        {
-          title: 'Steam',
-          subTile: 'steamcommunity.com/id/ttop5',
-          icon: 'fab fa-steam',
-          url: 'https://steamcommunity.com/id/ttop5',
-        },
-        {
-          title: 'Douban',
-          subTile: 'douban.com/people/ttop5',
-          icon: 'img:statics/douban.svg',
-          url: 'https://www.douban.com/people/ttop5',
-        },
-      ],
+      // links: [
+      //   {
+      //     title: 'Home',
+      //     subTile: 'https://ttop5.net',
+      //     icon: 'fas fa-home',
+      //     url: 'https://ttop5.net',
+      //   },
+      //   {
+      //     title: 'Github',
+      //     subTile: 'github.com/ttop5',
+      //     icon: 'fab fa-github',
+      //     url: 'https://github.com/ttop5',
+      //   },
+      //   {
+      //     title: 'Steam',
+      //     subTile: 'steamcommunity.com/id/ttop5',
+      //     icon: 'fab fa-steam',
+      //     url: 'https://steamcommunity.com/id/ttop5',
+      //   },
+      //   {
+      //     title: 'Douban',
+      //     subTile: 'douban.com/people/ttop5',
+      //     icon: 'img:statics/douban.svg',
+      //     url: 'https://www.douban.com/people/ttop5',
+      //   },
+      // ],
       year: date.formatDate(new Date(), 'YYYY'),
     };
   },

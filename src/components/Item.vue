@@ -1,13 +1,15 @@
 <template>
   <div>
     <div v-for="item in data" :key="item.index">
-      <q-item clickable v-ripple>
+      <q-item clickable v-ripple class="q-mt-md">
 
-        <q-item-section @click="toPostDetail(item.html_url)">
+        <q-item-section @click="toPostDetail(item.number)">
           <q-item-label>
-            <div class="text-subtitle1 text-weight-medium">{{ item.title }}</div>
+            <div class="text-h6 text-cyan-9">{{ item.title }}</div>
           </q-item-label>
-          <q-item-label caption lines="4">{{ item.body_html | htmlToText }}</q-item-label>
+          <q-item-label lines="4" class="text-body1 text-gray-light">
+            {{ item.body_html | htmlToText }}
+          </q-item-label>
         </q-item-section>
 
         <q-item-section side top>
@@ -29,17 +31,14 @@
         <q-item-section side top class="q-pt-sm created-at">
           <q-item-label caption>{{ item.created_at | dateFormate }}</q-item-label>
         </q-item-section>
-
       </q-item>
-
       <q-separator spaced inset />
-
     </div>
   </div>
 </template>
 
 <script>
-import { openURL, date } from 'quasar';
+import { date } from 'quasar';
 
 export default {
   name: 'Item',
@@ -58,8 +57,8 @@ export default {
     },
   },
   methods: {
-    toPostDetail(url) {
-      openURL(url);
+    toPostDetail(id) {
+      this.$router.push(`/posts/${id}`);
     },
     chipClickHandler(labelName) {
       console.log(labelName);
@@ -69,7 +68,10 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  @media (max-width: 768px)
+  .markdown-body hr
+    height unset
+
+  @media (max-width 767px)
     .label,
     .created-at
       display none

@@ -1,11 +1,8 @@
 <template>
   <q-page padding>
-    <q-list dense padding class="rounded-borders">
+    <q-list padding class="rounded-borders">
       <Item :data="data" />
     </q-list>
-    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn fab icon="keyboard_arrow_up" color="cyan-9" />
-    </q-page-scroller>
   </q-page>
 </template>
 
@@ -40,3 +37,6 @@ export default {
   },
 };
 </script>
+
+<style>
+</style>
