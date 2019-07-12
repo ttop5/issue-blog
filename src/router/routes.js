@@ -5,6 +5,7 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/List.vue') },
+      { path: '/posts/:id', component: () => import('pages/Post.vue') },
     ],
   },
 ];
