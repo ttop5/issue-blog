@@ -1,8 +1,8 @@
 {
   "name": "issue-blog",
   "version": "0.0.1",
-  "description": "issue-blog",
-  "productName": "issue-blog",
+  "description": "github issue blog",
+  "productName": "ISSUE BLOG",
   "cordovaId": "org.cordova.quasar.app",
   "author": "ttop5 <ttop5@qq.com>",
   "private": true,
@@ -16,6 +16,7 @@
     "axios": "^0.18.1",
     "github-markdown-css": "^3.0.1",
     "quasar": "^1.0.0",
+    "timeago.js": "^4.0.0-beta.2",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {

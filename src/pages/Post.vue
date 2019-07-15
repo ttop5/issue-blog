@@ -1,6 +1,14 @@
 <template>
-  <q-page padding>
+  <q-page v-show="data.length !== 0" padding>
+    <div class="q-mb-lg">
+      <h1 class="text-cyan-9">{{ data.title }}</h1>
+      <code class="text-italic">
+        Updated by {{ $store.getters.username }} {{ data.updated_at | timeAgo }}
+      </code>
+    </div>
+
     <div v-html="data.body_html" class="q-mt-lg" />
+
     <div>
       <q-chip
         v-for="label in data.labels"
@@ -14,40 +22,39 @@
         {{ label.name }}
       </q-chip>
     </div>
+
+    <q-separator color="cyan-9" style="height: 1px;" />
+
+    <Comment />
   </q-page>
 </template>
 
 <script>
-import { date } from 'quasar';
+import { format } from 'timeago.js';
 import { axiosInstance } from 'boot/axios';
+import Comment from '../components/Comment';
 
 export default {
   name: 'Post',
+  components: { Comment },
   data() {
     return {
       data: [],
     };
+  },
+  filters: {
+    timeAgo(d) {
+      return format(d);
+    },
   },
   methods: {
     getIssue() {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues/${this.$route.params.id}`)
         .then((res) => {
           console.log(res.data);
-          res.data.body_html = `
-            <div class="q-mb-lg">
-              <h1 class="text-cyan-9">${res.data.title}</h1>
-              <code class="text-italic">
-                Updated at ${this.dateFormate(res.data.updated_at)} by ${this.$store.getters.username}
-              </code>
-            </div>
-            ${res.data.body_html}
-            `;
           this.$set(this, 'data', res.data);
           this.$q.loading.hide();
         });
-    },
-    dateFormate(d) {
-      return date.formatDate(d, 'YYYY-MM-DD');
     },
   },
   created() {
