@@ -1,6 +1,6 @@
 <template>
-  <q-page padding>
-    <q-list padding class="rounded-borders">
+  <q-page v-if="data.length !== 0" padding>
+    <q-list padding class="rounded-borders" style="margin-top: -24px;">
       <Item :data="data" />
     </q-list>
   </q-page>

@@ -5,21 +5,12 @@
         <q-btn
           flat
           round
-          aria-label="Home"
-          to="/"
-          class="text-white"
-        >
-          <q-icon name="home" />
-        </q-btn>
-        <q-toolbar-title>Issue blog</q-toolbar-title>
-        <q-btn
-          flat
-          round
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
         >
           <q-icon name="menu" />
         </q-btn>
+        <q-toolbar-title>ISSUE BLOG</q-toolbar-title>
       </q-toolbar>
     </q-header>
 

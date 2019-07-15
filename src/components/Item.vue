@@ -1,13 +1,16 @@
 <template>
   <div>
     <div v-for="item in data" :key="item.index">
-      <q-item clickable v-ripple class="q-mt-md">
+      <q-item clickable v-ripple class="q-mt-lg">
 
         <q-item-section @click="toPostDetail(item.number)">
           <q-item-label>
             <div class="text-h6 text-cyan-9">{{ item.title }}</div>
+            <q-item-label class="text-gray-light text-weight-thin q-mt-sm q-mb-sm">
+              {{ item.created_at | dateFormate }}
+            </q-item-label>
           </q-item-label>
-          <q-item-label lines="4" class="text-body1 text-gray-light">
+          <q-item-label lines="4" class="text-body1 text-gray-light text-justify">
             {{ item.body_html | htmlToText }}
           </q-item-label>
         </q-item-section>
@@ -15,7 +18,6 @@
         <q-item-section side top>
           <q-chip
             v-for="label in item.labels"
-            dense
             outline
             square
             clickable
@@ -27,11 +29,8 @@
             {{ label.name }}
           </q-chip>
         </q-item-section>
-
-        <q-item-section side top class="q-pt-sm created-at">
-          <q-item-label caption>{{ item.created_at | dateFormate }}</q-item-label>
-        </q-item-section>
       </q-item>
+
       <q-separator spaced inset />
     </div>
   </div>
@@ -50,7 +49,7 @@ export default {
   },
   filters: {
     dateFormate(d) {
-      return date.formatDate(d, 'YYYY-MM-DD');
+      return date.formatDate(d, 'YYYY-MM-DD HH:mm:ss');
     },
     htmlToText(h) {
       return h.replace(/<\/?.+?>/g, '');
