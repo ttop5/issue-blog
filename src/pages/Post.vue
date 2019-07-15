@@ -1,17 +1,17 @@
 <template>
-  <q-page v-show="data.length !== 0" padding>
+  <q-page v-show="post.id" padding>
     <div class="q-mb-lg">
-      <h1 class="text-cyan-9">{{ data.title }}</h1>
+      <h1 class="text-cyan-9">{{ post.title }}</h1>
       <code class="text-italic">
-        Updated by {{ $store.getters.username }} {{ data.updated_at | timeAgo }}
+        Updated by {{ $store.getters.username }} {{ post.updated_at | timeAgo }}
       </code>
     </div>
 
-    <div v-html="data.body_html" class="q-mt-lg" />
+    <div v-html="post.body_html" class="q-mt-lg" />
 
     <div>
       <q-chip
-        v-for="label in data.labels"
+        v-for="label in post.labels"
         outline
         square
         clickable
@@ -39,7 +39,7 @@ export default {
   components: { Comment },
   data() {
     return {
-      data: [],
+      post: {},
     };
   },
   filters: {
@@ -52,7 +52,7 @@ export default {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues/${this.$route.params.id}`)
         .then((res) => {
           console.log(res.data);
-          this.$set(this, 'data', res.data);
+          this.$set(this, 'post', res.data);
           this.$q.loading.hide();
         });
     },

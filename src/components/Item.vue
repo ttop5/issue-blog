@@ -1,23 +1,23 @@
 <template>
   <div>
-    <div v-for="item in data" :key="item.index">
+    <div v-for="post in postList" :key="post.index">
       <q-item clickable v-ripple class="q-mt-lg">
 
-        <q-item-section @click="toPostDetail(item.number)">
+        <q-item-section @click="toPostDetail(post.number)">
           <q-item-label>
-            <div class="text-h6 text-cyan-9">{{ item.title }}</div>
+            <div class="text-h6 text-cyan-9">{{ post.title }}</div>
             <q-item-label class="text-gray-light text-weight-thin q-mt-sm q-mb-sm">
-              {{ item.created_at | dateFormate }}
+              {{ post.created_at | dateFormate }}
             </q-item-label>
           </q-item-label>
           <q-item-label lines="4" class="text-body1 text-gray-light text-justify">
-            {{ item.body_html | htmlToText }}
+            {{ post.body_html | htmlToText }}
           </q-item-label>
         </q-item-section>
 
         <q-item-section side top>
           <q-chip
-            v-for="label in item.labels"
+            v-for="label in post.labels"
             outline
             square
             clickable
@@ -42,7 +42,7 @@ import { date } from 'quasar';
 export default {
   name: 'Item',
   props: {
-    data: {
+    postList: {
       type: Array,
       required: true,
     },

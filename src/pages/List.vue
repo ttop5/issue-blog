@@ -1,7 +1,7 @@
 <template>
-  <q-page v-if="data.length !== 0" padding>
+  <q-page v-if="postList.length !== 0" padding>
     <q-list padding class="rounded-borders" style="margin-top: -24px;">
-      <Item :data="data" />
+      <Item :postList="postList" />
     </q-list>
   </q-page>
 </template>
@@ -18,15 +18,14 @@ export default {
   components: { Item },
   data() {
     return {
-      data: [],
+      postList: [],
     };
   },
   methods: {
     getIssueList() {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues`)
         .then((res) => {
-          console.log(res.data);
-          this.$set(this, 'data', res.data);
+          this.$set(this, 'postList', res.data);
           this.$q.loading.hide();
         });
     },

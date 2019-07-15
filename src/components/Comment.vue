@@ -52,7 +52,6 @@ export default {
     getComments() {
       axiosInstance.get(`/repos/${this.$store.getters.repo}/issues/${this.$route.params.id}/comments`)
         .then((res) => {
-          console.log(res.data);
           this.$set(this, 'comments', res.data);
         });
     },
