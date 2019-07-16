@@ -57,9 +57,20 @@
       <router-view />
     </q-page-container>
 
-    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn fab icon="keyboard_arrow_up" color="cyan-9" />
-    </q-page-scroller>
+    <q-page-sticky elevated reveal position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
+      <q-fab
+        icon="unfold_more"
+        color="cyan-9"
+        direction="up"
+      >
+        <q-fab-action icon="home" color="cyan-9" to="/" />
+        <q-fab-action icon="keyboard_arrow_up" color="cyan-9" @click="backToTop" />
+      </q-fab>
+    </q-page-sticky>
+
+<!--    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">-->
+<!--      <q-btn fab icon="keyboard_arrow_up" color="cyan-9" />-->
+<!--    </q-page-scroller>-->
   </q-layout>
 </template>
 
@@ -109,9 +120,25 @@ export default {
           this.$set(this, 'user', res.data);
         });
     },
+    backToTop() {
+      let timer;
+      const gotoTop = () => {
+        let currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+        currentPosition -= 100;
+        if (currentPosition > 0) {
+          window.scrollTo(0, currentPosition);
+        } else {
+          window.scrollTo(0, 0);
+          clearInterval(timer);
+          timer = null;
+        }
+      };
+      timer = setInterval(gotoTop, 1);
+    },
   },
   created() {
     this.getUserInfo();
+    console.log(this.$route);
   },
 };
 </script>

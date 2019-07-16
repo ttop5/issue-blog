@@ -50,6 +50,9 @@ module.exports = function(ctx) {
         'QAvatar',
         'QImg',
         'QSeparator',
+        'QPageSticky',
+        'QFab',
+        'QFabAction',
       ],
 
       directives: [
