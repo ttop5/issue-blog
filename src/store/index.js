@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
-// import example from './module-example'
 import account from './account';
 
 Vue.use(Vuex);
@@ -15,7 +13,6 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
       account,
-      // example
     },
 
     // enable strict mode (adds overhead!)

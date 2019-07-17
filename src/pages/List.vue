@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     getIssueList() {
-      axiosInstance.get(`/repos/${this.$store.getters.repo}/issues`)
+      axiosInstance.get(`/repos/${this.$store.getters.repository}/issues`)
         .then((res) => {
           this.$set(this, 'postList', res.data);
           this.$q.loading.hide();

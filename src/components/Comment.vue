@@ -40,7 +40,7 @@ export default {
   data() {
     return {
       comments: [],
-      addCommentUrl: `https://github.com/${this.$store.getters.repo}/issues/${this.$route.params.id}/#new_comment_field`,
+      addCommentUrl: `https://github.com/${this.$store.getters.repository}/issues/${this.$route.params.id}/#new_comment_field`,
     };
   },
   filters: {
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     getComments() {
-      axiosInstance.get(`/repos/${this.$store.getters.repo}/issues/${this.$route.params.id}/comments`)
+      axiosInstance.get(`/repos/${this.$store.getters.repository}/issues/${this.$route.params.id}/comments`)
         .then((res) => {
           this.$set(this, 'comments', res.data);
         });

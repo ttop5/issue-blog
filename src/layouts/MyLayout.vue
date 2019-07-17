@@ -63,7 +63,7 @@
         color="cyan-9"
         direction="up"
       >
-        <q-fab-action icon="home" color="cyan-9" to="/" />
+        <q-fab-action icon="home" color="cyan-9" @click="$router.push('/');" />
         <q-fab-action icon="keyboard_arrow_up" color="cyan-9" @click="backToTop" />
       </q-fab>
     </q-page-sticky>
@@ -138,7 +138,6 @@ export default {
   },
   created() {
     this.getUserInfo();
-    console.log(this.$route);
   },
 };
 </script>

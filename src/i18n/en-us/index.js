@@ -1,4 +1,4 @@
-// This is just an example,
+// This is just an module-example,
 // so you can safely delete all default props below
 
 export default {
