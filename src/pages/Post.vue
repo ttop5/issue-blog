@@ -6,9 +6,7 @@
         Updated by {{ $store.getters.username }} {{ post.updated_at | timeAgo }}
       </code>
     </div>
-
     <div v-html="post.body_html" class="q-mt-lg" />
-
     <div>
       <q-chip
         v-for="label in post.labels"
@@ -22,9 +20,7 @@
         {{ label.name }}
       </q-chip>
     </div>
-
     <q-separator color="cyan-9" style="height: 1px;" />
-
     <Comment />
   </q-page>
 </template>

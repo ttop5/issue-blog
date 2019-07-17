@@ -6,9 +6,6 @@
   </q-page>
 </template>
 
-<style>
-</style>
-
 <script>
 import { axiosInstance } from 'boot/axios';
 import Item from '../components/Item';

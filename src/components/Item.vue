@@ -2,7 +2,6 @@
   <div>
     <div v-for="post in postList" :key="post.index">
       <q-item clickable v-ripple class="q-mt-lg">
-
         <q-item-section @click="toPostDetail(post.number)">
           <q-item-label>
             <div class="text-h6 text-cyan-9">{{ post.title }}</div>
@@ -14,7 +13,6 @@
             {{ post.body_html | htmlToText }}
           </q-item-label>
         </q-item-section>
-
         <q-item-section side top>
           <q-chip
             v-for="label in post.labels"
@@ -30,7 +28,6 @@
           </q-chip>
         </q-item-section>
       </q-item>
-
       <q-separator spaced inset />
     </div>
   </div>
@@ -69,7 +66,6 @@ export default {
 <style scoped lang="stylus">
   .markdown-body hr
     height unset
-
   @media (max-width 767px)
     .label,
     .created-at
