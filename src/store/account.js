@@ -1,7 +1,7 @@
 const state = {
   username: 'ttop5', // GitHub 用户名
   repository: 'blog', // 记录 issue 的仓库名
-  accessToken: '5c48834d8791f766841a2838cd2efd48634e492c', // GitHub Token https://github.com/settings/tokens/new
+  accessToken: 'MGNhMTQ3YTRlMGQ0NGFkM2JjZTdmMTI5MTQzYWFkY2ZjMWQ0NmMyNg==', // 经过 base64 加密后的 GitHub Token https://github.com/settings/tokens/new
 };
 
 const getters = {
