@@ -21,7 +21,7 @@
         </q-item-section>
       </q-item>
     </q-list>
-    <div class="flex flex-center q-mt-xl q-mb-xl">
+    <div class="flex flex-center q-mt-xl">
       <q-btn outline no-caps color="cyan-9" @click.native="goAddComment">
         <q-icon left size="2rem" name="add_comment" />
         <div>Add Comment</div>

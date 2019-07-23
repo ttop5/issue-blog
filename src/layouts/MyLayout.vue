@@ -14,48 +14,55 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      content-class="bg-grey-2"
-    >
+    <q-drawer v-if="user.id" v-model="leftDrawerOpen" show-if-above content-class="bg-grey-2">
+      <q-scroll-area
+        style="height: calc(100% - 250px); margin-top: 250px; border-right: 1px solid #ddd"
+      >
+        <q-list class="q-pa-md q-mb-lg">
+          <q-item-label header>Links</q-item-label>
+          <q-item
+            v-for="item in links"
+            clickable
+            v-ripple
+            tag="a"
+            target="_blank"
+            :key="item.index"
+            :href="item.url"
+          >
+            <q-item-section avatar class="text-grey-10">
+              <q-icon size="30px" color="cyan-9" :name="item.icon" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label class="text-cyan-9">{{ item.title }}</q-item-label>
+              <q-item-label caption style="text-decoration: underline;">
+                {{ item.subTile }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
 
-      <q-img src="https://cdn.quasar.dev/img/material.png" style="height: 200px">
-        <div class="bg-transparent text-center q-pt-sm" style="width: 100%; height: 200px;">
+      <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 250px">
+        <div class="absolute-center bg-transparent text-center" style="width: 100%;">
           <q-avatar size="80px" class="">
             <img alt="ttop5-avatar" :src="user.avatar_url" />
           </q-avatar>
           <div class="q-pt-md text-h5">{{ user.name }}</div>
+          <div class="text-h5">{{ user.login }}</div>
           <div class="q-pt-sm">{{ user.bio }}</div>
         </div>
       </q-img>
-
-<!--      <q-list>-->
-<!--        <q-item-label header>Links</q-item-label>-->
-<!--        <q-item-->
-<!--          v-for="item in links"-->
-<!--          clickable-->
-<!--          v-ripple-->
-<!--          tag="a"-->
-<!--          target="_blank"-->
-<!--          :key="item.index"-->
-<!--          :href="item.url"-->
-<!--        >-->
-<!--          <q-item-section avatar class="text-grey-10">-->
-<!--            <q-icon size="28px" :name="item.icon" />-->
-<!--          </q-item-section>-->
-<!--          <q-item-section>-->
-<!--            <q-item-label>{{ item.title }}</q-item-label>-->
-<!--            <q-item-label caption>{{ item.subTile }}</q-item-label>-->
-<!--          </q-item-section>-->
-<!--        </q-item>-->
-<!--      </q-list>-->
-
-      <div class="absolute-bottom text-center q-pa-sm text-grey-6">© {{ year }} ttop5</div>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="q-mb-xl">
       <router-view />
+      <br />
+      <br />
+      <div class="absolute-bottom text-center text-grey-6">
+        © {{ year }} <a class="text-grey-6" href="https://ttop5.net/issue-blog">ttop5</a>
+      </div>
     </q-page-container>
+
 
     <q-page-sticky elevated reveal position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
       <q-fab
@@ -68,9 +75,6 @@
       </q-fab>
     </q-page-sticky>
 
-<!--    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">-->
-<!--      <q-btn fab icon="keyboard_arrow_up" color="cyan-9" />-->
-<!--    </q-page-scroller>-->
   </q-layout>
 </template>
 
@@ -84,32 +88,44 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
       user: {},
-      // links: [
-      //   {
-      //     title: 'Home',
-      //     subTile: 'https://ttop5.net',
-      //     icon: 'fas fa-home',
-      //     url: 'https://ttop5.net',
-      //   },
-      //   {
-      //     title: 'Github',
-      //     subTile: 'github.com/ttop5',
-      //     icon: 'fab fa-github',
-      //     url: 'https://github.com/ttop5',
-      //   },
-      //   {
-      //     title: 'Steam',
-      //     subTile: 'steamcommunity.com/id/ttop5',
-      //     icon: 'fab fa-steam',
-      //     url: 'https://steamcommunity.com/id/ttop5',
-      //   },
-      //   {
-      //     title: 'Douban',
-      //     subTile: 'douban.com/people/ttop5',
-      //     icon: 'img:statics/douban.svg',
-      //     url: 'https://www.douban.com/people/ttop5',
-      //   },
-      // ],
+      links: [
+        {
+          title: 'RSS',
+          subTile: 'rsshub.app/github/issue/ttop5/blog',
+          icon: 'fas fa-rss-square',
+          url: 'https://rsshub.app/github/issue/ttop5/blog',
+        },
+        {
+          title: 'Email',
+          subTile: 'ttop5@qq.com',
+          icon: 'fas fa-envelope',
+          url: 'mailto:ttop5@qq.com',
+        },
+        {
+          title: 'Home',
+          subTile: 'ttop5.net',
+          icon: 'fas fa-home',
+          url: 'https://ttop5.net',
+        },
+        {
+          title: 'GitHub',
+          subTile: 'github.com/ttop5',
+          icon: 'fab fa-github',
+          url: 'https://github.com/ttop5',
+        },
+        {
+          title: 'Steam',
+          subTile: 'steamcommunity.com/id/ttop5',
+          icon: 'fab fa-steam',
+          url: 'https://steamcommunity.com/id/ttop5',
+        },
+        {
+          title: 'DouBan',
+          subTile: 'douban.com/people/ttop5',
+          icon: 'img:statics/douban.svg',
+          url: 'https://www.douban.com/people/ttop5',
+        },
+      ],
       year: date.formatDate(new Date(), 'YYYY'),
     };
   },
@@ -142,5 +158,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="stylus" scoped>
+  .q-item__label + .q-item__label
+    white-space nowrap
+    text-overflow ellipsis
+    overflow hidden
+  .markdown-body a:hover
+    text-decoration none
 </style>
