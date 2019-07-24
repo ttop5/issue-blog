@@ -57,13 +57,15 @@ export default {
       this.$router.push(`/posts/${id}`);
     },
     chipClickHandler(labelName) {
-      console.log(labelName);
+      this.$router.push(`/?label=${labelName}`);
     },
   },
 };
 </script>
 
 <style scoped lang="stylus">
+  .label:hover
+    box-shadow 4px 4px 2px #888
   .markdown-body hr
     height unset
   @media (max-width 767px)

@@ -16,6 +16,7 @@
         class="label"
         :key="label.index"
         :style="`border-color: #${label.color}; color: #${label.color};`"
+        @click="chipClickHandler(label.name)"
       >
         {{ label.name }}
       </q-chip>
@@ -50,6 +51,9 @@ export default {
           this.$set(this, 'post', res.data);
           this.$q.loading.hide();
         });
+    },
+    chipClickHandler(labelName) {
+      this.$router.push(`/?label=${labelName}`);
     },
   },
   created() {

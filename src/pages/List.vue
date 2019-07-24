@@ -18,17 +18,26 @@ export default {
       postList: [],
     };
   },
+  watch: {
+    '$route'() {
+      this.getIssueList();
+    },
+  },
   methods: {
     getIssueList() {
-      axiosInstance.get(`/repos/${this.$store.getters.repository}/issues`)
+      this.$q.loading.show({ delay: 250 });
+      let url = `/search/issues?q=+repo:${this.$store.getters.repository}+state:open`;
+      if (this.$route.query.label) {
+        url += `+label:${this.$route.query.label}`;
+      }
+      axiosInstance.get(url)
         .then((res) => {
-          this.$set(this, 'postList', res.data);
+          this.$set(this, 'postList', res.data.items);
           this.$q.loading.hide();
         });
     },
   },
   created() {
-    this.$q.loading.show({ delay: 250 });
     this.getIssueList();
   },
 };

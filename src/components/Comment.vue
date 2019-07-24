@@ -68,7 +68,6 @@ export default {
 <style scoped lang="stylus">
   .q-item__section--side > .q-avatar
     font-size 48px
-
   @media (max-width 767px)
     .q-item__section--side > .q-avatar
       font-size 36px
