@@ -11,6 +11,14 @@
           <q-icon name="menu" />
         </q-btn>
         <q-toolbar-title>ISSUE BLOG</q-toolbar-title>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=ttop5&repo=issue-blog&type=star&count=true"
+          frameborder="0"
+          scrolling="0"
+          width="100px"
+          height="20px"
+        >
+        </iframe>
       </q-toolbar>
     </q-header>
 
