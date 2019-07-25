@@ -96,44 +96,7 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
       user: {},
-      links: [
-        {
-          title: 'RSS',
-          subTile: 'rsshub.app/github/issue/ttop5/blog',
-          icon: 'fas fa-rss-square',
-          url: 'https://rsshub.app/github/issue/ttop5/blog',
-        },
-        {
-          title: 'Email',
-          subTile: 'ttop5@qq.com',
-          icon: 'fas fa-envelope',
-          url: 'mailto:ttop5@qq.com',
-        },
-        {
-          title: 'Home',
-          subTile: 'ttop5.net',
-          icon: 'fas fa-home',
-          url: 'https://ttop5.net',
-        },
-        {
-          title: 'GitHub',
-          subTile: 'github.com/ttop5',
-          icon: 'fab fa-github',
-          url: 'https://github.com/ttop5',
-        },
-        {
-          title: 'Steam',
-          subTile: 'steamcommunity.com/id/ttop5',
-          icon: 'fab fa-steam',
-          url: 'https://steamcommunity.com/id/ttop5',
-        },
-        {
-          title: 'DouBan',
-          subTile: 'douban.com/people/ttop5',
-          icon: 'img:statics/douban.svg',
-          url: 'https://www.douban.com/people/ttop5',
-        },
-      ],
+      links: this.$store.getters.links,
       year: date.formatDate(new Date(), 'YYYY'),
     };
   },

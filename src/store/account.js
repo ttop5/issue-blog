@@ -15,6 +15,9 @@ const getters = {
   blogName(s) {
     return s.blogName;
   },
+  links(s) {
+    return s.links;
+  },
 };
 
 const mutations = {};
