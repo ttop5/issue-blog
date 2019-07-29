@@ -59,3 +59,9 @@ window.btoa('{你的 GitHub Token}')
 ## License
 
 [MIT](https://github.com/ttop5/issue-blog/blob/master/LICENSE)
+
+
+## Links
+
+- [https://www.v2ex.com/t/586107](https://www.v2ex.com/t/586107)
+- [https://github.com/ttop5/blog/issues/35](https://github.com/ttop5/blog/issues/35)
