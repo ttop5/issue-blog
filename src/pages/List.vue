@@ -24,22 +24,22 @@ export default {
   },
   watch: {
     '$route'() {
-      this.getIssueList();
+      this.getIssueList(this.pag, this.number);
     },
   },
-  mounted() {
-    this.handleScroll();
-  },
   methods: {
-    getIssueList() {
-      this.$q.loading.show({ delay: 250 });
-      let url = `/search/issues?q=+repo:${this.$store.getters.repository}+state:open&page=${this.page}&per_page=${this.number}`;
+    getIssueList(page, num) {
+      this.$set(this, 'loaded', false);
+      if (this.postList.length === 0) {
+        this.$q.loading.show({ delay: 250 });
+      }
+      let url = `/search/issues?q=+repo:${this.$store.getters.repository}+state:open&page=${page}&per_page=${num}`;
       if (this.$route.query.label) {
         url += `+label:${this.$route.query.label}`;
       }
       axiosInstance.get(url)
         .then((res) => {
-          this.$set(this, 'postList', res.data.items);
+          this.$set(this, 'postList', this.postList.length > 0 ? this.postList.concat(res.data.items) : res.data.items);
           this.$set(this, 'total_count', res.data.total_count);
           this.$set(this, 'loaded', true);
           this.$q.loading.hide();
@@ -49,33 +49,21 @@ export default {
       const that = this;
       window.onscroll = () => {
         // 距离底部200px时加载一次
-        const bottomOfWindow =
-          document.documentElement.offsetHeight -
-            document.documentElement.scrollTop -
-            window.innerHeight <=
-          200;
+        const bottomOfWindow = document.documentElement.offsetHeight
+            - document.documentElement.scrollTop
+            - window.innerHeight
+          <= 200;
         if (bottomOfWindow && that.loaded && that.total_count > that.postList.length) {
-          that.loadMore(that.page + 1, that.number);
+          that.getIssueList(that.page + 1, that.number);
         }
       };
-    },
-    loadMore(page, num) {
-      let url = `/search/issues?q=+repo:${this.$store.getters.repository}+state:open&page=${page}&per_page=${num}`;
-      if (this.$route.query.label) {
-        url += `+label:${this.$route.query.label}`;
-      }
-      this.$set(this, 'loaded', false);
-      axiosInstance.get(url)
-        .then((res) => {
-          this.$set(this, 'postList', this.postList.concat(res.data.items));
-          this.$set(this, 'total_count', res.data.total_count);
-          this.$set(this, 'loaded', true);
-          this.$q.loading.hide();
-        });
     },
   },
   created() {
     this.getIssueList();
+  },
+  mounted() {
+    this.handleScroll();
   },
 };
 </script>
