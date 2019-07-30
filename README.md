@@ -63,4 +63,5 @@ window.btoa('{你的 GitHub Token}')
 
 ## Links
 
-[https://github.com/ttop5/blog/issues/35](https://github.com/ttop5/blog/issues/35)
+- [https://www.v2ex.com/t/586107](https://www.v2ex.com/t/586107)
+- [https://github.com/ttop5/blog/issues/35](https://github.com/ttop5/blog/issues/35)
