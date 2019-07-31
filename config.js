@@ -1,18 +1,18 @@
 export default {
-  username: 'xiaoyueyue165', // GitHub �û���
-  repository: 'blog', // ��¼ issue �Ĳֿ���
-  accessToken: 'MWRhYzQzOTFkZDA3Y2I5NzdmMTYyY2YyODkwMDZmMGMyOTI2MTQxYw==', // ���� base64 ���ܺ�� GitHub Token
-  blogName: "RainBow's Blog", // ����Ĳ���ȡ������
+  username: 'xiaoyueyue165', // GitHub 用户名
+  repository: 'blog', // 记录 issue 的仓库名
+  accessToken: 'MWRhYzQzOTFkZDA3Y2I5NzdmMTYyY2YyODkwMDZmMGMyOTI2MTQxYw==', // 经过 base64 加密后的 GitHub Token
+  blogName: "RainBow's Blog", // 给你的博客取个名字
   /**
-   * �������˵����Ӳ���
-   * ��ʽ��
+   * 定制左侧菜单链接部分
+   * 格式：
    * {
-   *   title: '',   // ����
-   *   subTile: '', // ����
-   *   icon: '',    // ͼ�����ƣ��������������Ҫ��ͼ������ https://fontawesome.com �������Ҫ�Զ���ͼ��Ĳο�ʾ�������һ�����ã�����ͼ���ļ��ŵ� /src/statics Ŀ¼��
-   *   url: '',     // ����
+   *   title: '',   // 名称
+   *   subTile: '', // 描述
+   *   icon: '',    // 图标名称，上这里查找你需要的图标名称 https://fontawesome.com ，如果需要自定义图标的参考示例的最后一个配置，并将图标文件放到 /src/statics 目录中
+   *   url: '',     // 链接
    * }
-   * ʾ�����£�
+   * 示例如下：
    */
   links: [
     {
