@@ -67,7 +67,7 @@
       <br />
       <br />
       <div class="absolute-bottom text-center text-grey-6">
-        © {{ year }} <a class="text-grey-6" href="https://ttop5.net/issue-blog">ttop5</a>
+        © {{ year }} <a class="text-grey-6" :href="user.blog">{{ user.name }}</a>
       </div>
     </q-page-container>
 
