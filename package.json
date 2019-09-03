@@ -1,8 +1,8 @@
 {
   "name": "issue-blog",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "github issue blog",
-  "productName": "ISSUE BLOG",
+  "productName": "回家看动画",
   "cordovaId": "org.cordova.quasar.app",
   "author": "ttop5 <ttop5@qq.com>",
   "private": true,
