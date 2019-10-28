@@ -10,7 +10,9 @@
         >
           <q-icon name="menu" />
         </q-btn>
-        <q-toolbar-title>{{ $store.getters.blogName }}</q-toolbar-title>
+        <q-toolbar-title>
+          <router-link to="/" style="color: #fff;">{{ $store.getters.blogName }}</router-link>
+        </q-toolbar-title>
         <iframe
           src="https://ghbtns.com/github-btn.html?user=ttop5&repo=issue-blog&type=star&count=true"
           frameborder="0"
