@@ -52,7 +52,7 @@ window.btoa('{你的 GitHub Token}')
 3. 编辑 `config.js` 文件；
 4. 安装依赖：`yarn install`；
 5. 查看效果： `yarn dev`;
-6. 部署：`yarn deploy`；
+6. 部署：`yarn deploy`，项目仓库 -> `Settings` -> `GitHub Pages` -> `Source` -> 选择 `gh-pages branch` (`Enforce HTTPS` 选不选看你)；
 7. 浏览器地址栏输入：`{你的用户名}.github.io/issue-blog` 查看。
 
 
