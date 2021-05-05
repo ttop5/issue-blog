@@ -1,7 +1,10 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-module.exports = function(ctx) {
+const eslint = require('eslint')
+const env = require('quasar-dotenv')
+
+module.exports = function config() {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
@@ -76,6 +79,7 @@ module.exports = function(ctx) {
     supportIE: true,
 
     build: {
+      env: env.config(),
       scopeHoisting: true,
       // vueRouterMode: 'history',
       // vueCompiler: true,
@@ -89,7 +93,7 @@ module.exports = function(ctx) {
           loader: 'eslint-loader',
           exclude: /node_modules/,
           options: {
-            formatter: require('eslint').CLIEngine.getFormatter('stylish'),
+            formatter: eslint.CLIEngine.getFormatter('stylish'),
           },
         });
       },
@@ -157,7 +161,7 @@ module.exports = function(ctx) {
     electron: {
       // bundler: 'builder', // or 'packager'
 
-      extendWebpack(cfg) {
+      extendWebpack() {
         // do something with Electron main process Webpack cfg
         // chainWebpack also available besides this extendWebpack
       },

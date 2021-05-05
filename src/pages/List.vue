@@ -26,7 +26,7 @@ export default {
   methods: {
     getIssueList() {
       this.$q.loading.show({ delay: 250 });
-      let url = `/search/issues?q=+repo:${this.$store.getters.repository}+state:open`;
+      let url = `/search/issues?q=+repo:${this.$store.getters.repositorySlug}+state:open`;
       if (this.$route.query.label) {
         url += `+label:${this.$route.query.label}`;
       }

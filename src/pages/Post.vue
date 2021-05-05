@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     getIssue() {
-      axiosInstance.get(`/repos/${this.$store.getters.repository}/issues/${this.$route.params.id}`)
+      axiosInstance.get(`/repos/${this.$store.getters.repositorySlug}/issues/${this.$route.params.id}`)
         .then((res) => {
           this.$set(this, 'post', res.data);
           this.$q.loading.hide();

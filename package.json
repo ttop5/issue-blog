@@ -8,20 +8,25 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint *.js --fix",
     "dev": "quasar dev",
+    "build": "quasar build",
+    "publish": "node publish.js",
     "deploy": "quasar build && node publish.js",
+    "clean": "rm -rf dist .quasar",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "github-markdown-css": "^3.0.1",
     "quasar": "^1.0.0",
+    "quasar-dotenv": "^1.0.5",
     "timeago.js": "^4.0.0-beta.2",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^8.1.0",
     "@quasar/app": "^1.0.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
@@ -30,7 +35,8 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0",
     "gh-pages": "^2.0.1",
-    "husky": "^3.0.1"
+    "husky": "^3.0.1",
+    "quasar-cli": "^0.6.5"
   },
   "engines": {
     "node": ">= 8.9.0",
