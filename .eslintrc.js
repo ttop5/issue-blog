@@ -33,6 +33,7 @@ module.exports = {
   rules: {
     'no-param-reassign': 'off',
     'object-shorthand': 'off',
+    'semi': 'off',
 
     'import/first': 'off',
     'import/named': 'error',

@@ -14,7 +14,7 @@
           <router-link to="/" style="color: #fff;">{{ $store.getters.blogName }}</router-link>
         </q-toolbar-title>
         <iframe
-          src="https://ghbtns.com/github-btn.html?user=ttop5&repo=issue-blog&type=star&count=true"
+          :src="`https://ghbtns.com/github-btn.html?user=${this.$store.getters.username}&repo=${this.$store.getters.repository}&type=star&count=true`"
           frameborder="0"
           scrolling="0"
           width="100px"
@@ -96,7 +96,7 @@ export default {
   name: 'MyLayout',
   data() {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop,
+      // leftDrawerOpen: this.$q.platform.is.desktop,
       user: {},
       links: this.$store.getters.links,
       year: date.formatDate(new Date(), 'YYYY'),

@@ -49,7 +49,7 @@ window.btoa('{你的 GitHub Token}')
 
 1. Fork 此项目到自己仓库；
 2. 将代码克隆到本地；
-3. 编辑 `config.js` 文件；
+3. 编辑 `.env` 文件；
 4. 安装依赖：`yarn install`；
 5. 查看效果： `yarn dev`;
 6. 部署：`yarn deploy`，项目仓库 -> `Settings` -> `GitHub Pages` -> `Source` -> 选择 `gh-pages branch` (`Enforce HTTPS` 选不选看你)；
@@ -65,3 +65,73 @@ window.btoa('{你的 GitHub Token}')
 
 - [https://www.v2ex.com/t/586107](https://www.v2ex.com/t/586107)
 - [https://github.com/ttop5/blog/issues/35](https://github.com/ttop5/blog/issues/35)
+
+# Readme in English
+
+# ISSUE BLOG
+
+A blog tool based on GitHub API, enjoy the convenience brought by GitHub Issue.
+
+
+## Demo
+
+[https://ttop5.github.io/issue-blog](https://ttop5.github.io/issue-blog)
+
+
+## Usage
+
+### Ready to work
+
+#### Development environment dependency
+
+```
+-git: ^v2.0.0
+-node: ^v10.0.0
+-yarn: ^v1.12.0
+```
+
+#### Get GitHub Token
+
+Click [here](https://github.com/settings/tokens/new), check the following two:
+```
+read: user Read all user profile data
+user: email Access user email addresses (read-only)
+```
+⚠️Warning️: Don’t check anything else to avoid account security problems.
+
+If your project belongs to an organization, you also need to check a permission:
+
+```
+read: org Read org and team membership
+```
+
+#### GitHub Token for Base64 encryption
+
+Open Chrome's Console and run:
+
+```
+window.btoa('{Your GitHub Token}')
+```
+
+If you push the Token directly to the GitHub repository in plaintext, the Token will immediately become invalid, so encryption and confusion are required.
+
+### Start deployment
+
+1. Fork this item to your own warehouse;
+2. Clone the code locally;
+3. Edit the `.env` file;
+4. Installation dependency: `yarn install`;
+5. Check the effect: `yarn dev`;
+6. Deployment: `yarn deploy`, project repository -> `Settings` -> `GitHub Pages` -> `Source` -> select `gh-pages branch` (If you choose `Enforce HTTPS`, it will see you);
+7. Enter in the address bar of the browser: `{your user name}.github.io/issue-blog` to view.
+
+
+## License
+
+[MIT](https://github.com/ttop5/issue-blog/blob/master/LICENSE)
+
+
+## Links
+
+-[https://www.v2ex.com/t/586107](https://www.v2ex.com/t/586107)
+-[https://github.com/ttop5/blog/issues/35](https://github.com/ttop5/blog/issues/35)

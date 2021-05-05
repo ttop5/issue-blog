@@ -7,6 +7,9 @@ const getters = {
     return s.username;
   },
   repository(s) {
+    return s.repository;
+  },
+  repositorySlug(s) {
     return `${s.username}/${s.repository}`;
   },
   accessToken(s) {
